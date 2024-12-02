@@ -1,4 +1,4 @@
-import util.Aufgabe;
+import java.util.Scanner;
 import util.Menu;
 import util.TaskManager;
 
@@ -21,6 +21,12 @@ public class Main {
           break;
         case "2":
           taskManager.addTask();
+          break;
+        case "3":
+          Scanner scanner = new Scanner(System.in);
+          System.out.print("ID der Aufgabe: ");
+          int taskId = scanner.nextInt();
+          taskManager.editTask(taskId);
           break;
         case "q":
           running = false;

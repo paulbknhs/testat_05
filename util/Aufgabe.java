@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Aufgabe {
+
+
   public enum Zustand {
     OFFEN, IN_BEARBEITUNG, ERLEDIGT
   }
@@ -11,9 +13,16 @@ public class Aufgabe {
   private static int idCounter = 1;
   private final int id;
   private String beschreibung;
-  private Zustand zustand;
-  private Date faelligkeitsdatum;
+  private final Zustand zustand;
+  Date faelligkeitsdatum;
 
+  /**
+   * Erstellt ein neues Objekt der Klasse Aufgabe.
+   *
+   * @param beschreibung Aufgabentitel
+   * @param zustand Standardmäßig OFFEN, kann weiter die Werte IN_BEARBEITUNG und ERLEDIGT annehmen
+   * @param faelligkeitsdatum Zeitpunkt, zu dem die Aufgabe erledigt werden muss
+   */
   public Aufgabe(String beschreibung, Zustand zustand, Date faelligkeitsdatum) {
     this.id = idCounter++;
     this.beschreibung = beschreibung;
@@ -23,6 +32,14 @@ public class Aufgabe {
 
   public String getBeschreibung() {
     return beschreibung;
+  }
+
+  public void setFaelligkeitsdatum(Date neuesDatum) {
+    faelligkeitsdatum = neuesDatum;
+  }
+
+  public void setBeschreibung(String neueBeschreibung) {
+    beschreibung = neueBeschreibung;
   }
 
   public int getId() {
